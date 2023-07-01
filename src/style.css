@@ -1,0 +1,191 @@
+html {
+    height: 100vh;
+    width: 100%;
+}
+
+html,
+body {
+    box-sizing: border-box;
+}
+
+body,
+#root {
+    margin: 0;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+} */
+
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_container {
+    /* background-color: rgb(221, 224, 255); */
+    width: 50%;
+}
+
+.main_container h2 {
+    float: left;
+
+}
+
+.main_container button {
+    float: right;
+    border: none;
+    padding: 6px 20px;
+    background-color: rgb(72, 201, 72);
+    box-shadow: 2px 2px 5px rgb(184, 186, 221);
+    font-weight: 600;
+}
+
+.table_container {
+    /* background-color: rgb(221, 224, 255); */
+    width: 50%;
+    border-radius: 10px 10px 0 0;
+    min-height: 232px;
+
+}
+
+.table_header thead {
+    background-color: rgb(171, 176, 241);
+}
+
+.table_header th {
+    padding: 10px 0;
+    background-color: rgb(171, 176, 241);
+}
+
+.table_header_wrap {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.table_row:hover {
+    background-color: rgb(234, 237, 255);
+}
+
+.table_row td {
+    padding: 10px;
+    font-weight: 600;
+}
+
+.table_button_cell {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.table_button {
+    border-radius: 12px;
+    border: none;
+    padding: 6px 20px;
+    margin-right: 20px;
+    /* background-color: white; */
+    box-shadow: 2px 2px 5px rgb(184, 186, 221);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.view_detail_btn  {
+    background-color: rgb(252, 243, 207) !important;
+    color: rgb(255, 204, 0) !important;;
+}
+
+.delete_btn  {
+    background-color: rgb(255, 154, 154) !important;
+    color: rgb(114, 74, 74) !important;;
+}
+
+/* 
+.table_button svg {
+    margin-right: 10px;
+} */
+
+.table_pagination {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 50%;
+    /* background-color: #7f87ea; */
+    border-radius: 0 0 10px 10px;
+}
+
+.table_pagination ul {
+    display: flex;
+    list-style-type: none;
+    height: 100%;
+    margin: 0;
+}
+
+.table_pagination li {
+    display: flex;
+}
+
+.table_pagination a {
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.table_pagination a:hover {
+    background-color: #6972e6;
+}
+
+.table_pagination li.selected {
+    background-color: #6972e6;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.table_pagination_option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table_pagination_option select {
+    border: 0;
+}
+
+.table_pagination_option label {
+    margin-left: 1rem;
+}
+
+.select_container {
+    margin-top: 3rem;
+    width: 50%;
+    background-color: rgb(234, 237, 255);
+}
+
+@media (max-width: 1080px) {
+    .main_container {
+        width: 100%;
+    }
+    
+    .table_container {
+        width: 100%;
+    }
+
+    .table_pagination {
+        width: 100%;
+    }
+
+    .select_container {
+        width: 100%;
+    }
+}
