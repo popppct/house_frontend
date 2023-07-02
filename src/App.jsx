@@ -57,7 +57,6 @@ function App() {
   function getPostCodeDetail(param) {
     axios.get(`https://test-backend.baania.dev/postCode/${param}`)
       .then(response => {
-        console.log('post_code detail res', response.data.payload);
         setPostCodeDetail(response.data.payload);
 
       })
@@ -106,7 +105,7 @@ function App() {
 
   const handlePageClick = (e) => {
     let newOffset = (e.selected * itemsPerPage) % houses.length;
-    console.log(newOffset);
+    // console.log(newOffset);
     setItemOffset(newOffset);
     setPageNumber(e.selected);
   };
@@ -119,7 +118,6 @@ function App() {
 
   const handleSelectPostCode = (e) => {
     let selectedVal = e.target.value
-    console.log('selectedVal', selectedVal);
     getPostCodeDetail(selectedVal);
   }
 
@@ -163,7 +161,7 @@ function App() {
                   </Tr>
                 ))
               }
-              <ViewDetailModal show={showDetail} setShow={setShowDetail} getHouses={getHouses} id={detailID} />
+              <ViewDetailModal show={showDetail} setShow={setShowDetail} getHouses={getHouses} id={detailID} houses={houses} />
 
             </Tbody>
           </Table>

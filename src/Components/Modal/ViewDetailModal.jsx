@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal, Row, Col, Form, InputGroup, FloatingLabel } from 'react-bootstrap';
 import axios from 'axios'
 
 import Swal from 'sweetalert2'
 
-function ViewDetailModal({ show, setShow, getHouses, id }) {
+function ViewDetailModal({ show, setShow, getHouses, id, houses }) {
     const handleClose = () => {
         //clear form
         setName(""); setDesc(""); setPrice(""); setPostCode("");
@@ -18,6 +18,20 @@ function ViewDetailModal({ show, setShow, getHouses, id }) {
     const [desc, setDesc] = useState("");
     const [price, setPrice] = useState("");
     const [postCode, setPostCode] = useState("");
+
+    function setDetail() {
+        if (houses) {
+            let find = houses.find(item => item.id == id)
+            setName(find?.name)
+            setDesc(find?.desc)
+            setPrice(find?.price)
+            setPostCode(find?.post_code)
+        }
+    }
+
+    useEffect(() => {
+        setDetail();
+    }, [id])
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -59,7 +73,7 @@ function ViewDetailModal({ show, setShow, getHouses, id }) {
                                 required
                                 type="text"
                                 placeholder="Name"
-                                value={name}
+                                value={name || ""}
                                 onChange={e => setName(e.target.value)}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -70,7 +84,7 @@ function ViewDetailModal({ show, setShow, getHouses, id }) {
                                 required
                                 type="text"
                                 placeholder="Postcode"
-                                value={postCode}
+                                value={postCode || ""}
                                 onChange={e => setPostCode(e.target.value)}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -82,7 +96,7 @@ function ViewDetailModal({ show, setShow, getHouses, id }) {
                                     type="text"
                                     placeholder="Price"
                                     required
-                                    value={price}
+                                    value={price || ""}
                                     onChange={e => setPrice(e.target.value)}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -97,7 +111,7 @@ function ViewDetailModal({ show, setShow, getHouses, id }) {
                                     placeholder="Description here"
                                     style={{ height: '100px' }}
                                     required
-                                    value={desc}
+                                    value={desc || ""}
                                     onChange={e => setDesc(e.target.value)}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
